@@ -19,6 +19,9 @@ import Report from "./components/Report";
 import AdminPanel from "./components/AdminPanel";
 import Visualization from "./Visualization";
 import Home from "./components/Home";
+import AwarenessCreation from "./components/AwarenessCreation";
+import ApplianceTesting from "./components/ApplianceTesting";
+import CapacityBuilding from "./components/CapacityBuilding";
 
 export default function App() {
   const navigate = useNavigate();
@@ -301,6 +304,36 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AdminPanel onBack={() => navigate("/dashboard")} />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/awareness"
+              element={
+                <ProtectedRoute>
+                  <AwarenessCreation
+                    equipmentList={equipmentList}
+                    calcEnergy={calcEnergy}
+                  />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/appliance-testing"
+              element={
+                <ProtectedRoute>
+                  <ApplianceTesting equipmentList={equipmentList} />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/training"
+              element={
+                <ProtectedRoute>
+                  <CapacityBuilding />
                 </ProtectedRoute>
               }
             />
